@@ -1,0 +1,27 @@
+{
+  "mcpServers": {
+
+    "n8n-docs": {
+      "_comment": "Community MCP server — provides node docs, search, validation, and workflow management tools. This is the BUILD-TIME intelligence layer.",
+      "command": "npx",
+      "args": ["-y", "n8n-mcp"],
+      "env": {
+        "MCP_MODE": "stdio",
+        "LOG_LEVEL": "error",
+        "DISABLE_CONSOLE_OUTPUT": "true",
+        "N8N_API_URL": "http://100.80.13.56:5678",
+        "N8N_API_KEY": "${N8N_API_KEY}"
+      }
+    },
+
+    "n8n-runtime": {
+      "_comment": "Official n8n built-in MCP server — provides RUNTIME discovery and execution of published/exposed workflows. Enable in n8n under Settings > Instance-level MCP, then paste your token below.",
+      "type": "http",
+      "url": "http://100.80.13.56:5678/mcp-server/http",
+      "headers": {
+        "Authorization": "Bearer ${N8N_MCP_TOKEN}"
+      }
+    }
+
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "_comment": "Happy path — complete, high-intent lead. All fields present. Should trigger HubSpot upsert + Slack alert + Airtable row.",
+  "event_id": "01HXYZ-HAPPY-001",
+  "form_response": {
+    "form_id": "abc123",
+    "token": "happy-path-token-unique-001",
+    "submitted_at": "2026-03-06T12:00:00Z",
+    "answers": [
+      { "field": { "id": "f1", "ref": "name" }, "text": "Jane Smith" },
+      { "field": { "id": "f2", "ref": "email" }, "email": "jane@acme.com" },
+      { "field": { "id": "f3", "ref": "company" }, "text": "Acme Corp" },
+      { "field": { "id": "f4", "ref": "role" }, "text": "Head of Marketing" },
+      { "field": { "id": "f5", "ref": "budget" }, "text": "$15,000-$25,000" },
+      { "field": { "id": "f6", "ref": "timeline" }, "text": "Within 1 month" },
+      { "field": { "id": "f7", "ref": "notes" }, "text": "Very interested, wants a demo ASAP." }
+    ]
+  },
+  "_expected_behavior": {
+    "hubspot": "upsert contact — jane@acme.com",
+    "lead_score": 90,
+    "slack_alert": true,
+    "airtable_row": true
+  }
+}

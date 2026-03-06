@@ -1,0 +1,23 @@
+# Secrets — NEVER commit these
+.env
+.env.local
+.env.production
+secrets/
+
+# n8n exports with embedded credentials
+workflows/exports/*-with-creds.json
+
+# Node modules (if any tooling added)
+node_modules/
+.npm/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Claude Code internal state
+.claude/.chat_history/

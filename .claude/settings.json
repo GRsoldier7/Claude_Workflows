@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+
+  "permissions": {
+    "allow": [
+      "Bash(git status)",
+      "Bash(git diff)",
+      "Bash(git log --oneline -20)",
+      "Bash(ls *)",
+      "Bash(ls -la *)",
+      "Bash(cat *)",
+      "Bash(find . -name '*.json' -not -path './.git/*')",
+      "Bash(find . -name '*.md' -not -path './.git/*')",
+      "Bash(echo *)",
+      "Bash(mkdir -p *)",
+      "Bash(cp workflows/drafts/* workflows/exports/*)",
+      "Bash(node -e *)",
+      "Bash(npx ajv *)",
+      "Bash(jq * workflows/**)",
+      "Bash(jq * payloads/**)"
+    ],
+    "deny": [
+      "Bash(rm *)",
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(chmod *)",
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./secrets/**)"
+    ]
+  },
+
+  "env": {
+    "N8N_API_URL": "http://100.80.13.56:5678",
+    "N8N_API_KEY": "${N8N_API_KEY}",
+    "N8N_MCP_TOKEN": "${N8N_MCP_TOKEN}"
+  }
+}

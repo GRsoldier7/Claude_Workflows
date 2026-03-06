@@ -1,0 +1,25 @@
+{
+  "_comment": "Edge case — missing email. Should skip HubSpot and Slack, but still log to Airtable.",
+  "event_id": "01HXYZ-EDGE-001",
+  "form_response": {
+    "form_id": "abc123",
+    "token": "edge-case-token-unique-001",
+    "submitted_at": "2026-03-06T13:00:00Z",
+    "answers": [
+      { "field": { "id": "f1", "ref": "name" }, "text": "Unknown User" },
+      { "field": { "id": "f2", "ref": "email" }, "email": "" },
+      { "field": { "id": "f3", "ref": "company" }, "text": "" },
+      { "field": { "id": "f4", "ref": "role" }, "text": "" },
+      { "field": { "id": "f5", "ref": "budget" }, "text": "" },
+      { "field": { "id": "f6", "ref": "timeline" }, "text": "" },
+      { "field": { "id": "f7", "ref": "notes" }, "text": "Just browsing" }
+    ]
+  },
+  "_expected_behavior": {
+    "hubspot": "SKIP — no email",
+    "lead_score": 50,
+    "slack_alert": false,
+    "airtable_row": true,
+    "notes": "Logged with null email — no CRM record created"
+  }
+}
